@@ -26,32 +26,11 @@ async function main() {
   await inkToken.deployed();
 
   //deploy ink core with necessary constructor values
-  const ink = await Ink.deploy(
-    inkToken.address,
-    "0x3cc46CEC3F11c9d16D959bDb690fEC8Eaa9e4945"
-  );
+  const ink = await Ink.deploy(inkToken.address, "admin address here");
 
   await ink.deployed();
 
   console.log("Ink deployed to:", ink.address);
-
-  //testing contract functions
-  const reg = await ink.register();
-  await ink.createPost("This is my first Post");
-  await ink.createPost("This is my second Post");
-  await ink.createPost("This is my third Post");
-  await ink.createPost("This is my fourth Post");
-  await ink.createPost("This is my fifth Post");
-  const getPost = await ink.getPosts(0, 10);
-
-  console.log("getting post onchain");
-  console.log(getPost);
-
-  //getting full user details
-  //const userDetails = await ink.getUser(
-  //  "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266"
-  // );
-  //console.log(userDetails);
 }
 
 // We recommend this pattern to be able to use async/await everywhere
