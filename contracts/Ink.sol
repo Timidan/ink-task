@@ -27,14 +27,6 @@ contract Ink {
         Post[] posts;
     }
 
-    struct UserDeets {
-        address user;
-        address[] followers;
-        uint256 tips;
-        Post[] posts;
-        uint status;
-    }
-
     uint postId = 0;
     uint userId = 0;
     //30% burn fee while tipping
